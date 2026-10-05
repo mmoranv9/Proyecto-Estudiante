@@ -1,0 +1,26 @@
+[
+    {
+        "id": 2,
+        "nombre": "jesus",
+        "apellido": "cabrera",
+        "email": "jesuscabrera@gmail.com",
+        "carnet": "0938493939",
+        "notas": {
+            "lengua": [
+                5.0
+            ]
+        },
+        "materias": [
+            "lengua"
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "jose",
+        "apellido": "alvarez",
+        "email": "jose09@hotmail.com",
+        "carnet": "0951233442",
+        "notas": {},
+        "materias": []
+    }
+]
