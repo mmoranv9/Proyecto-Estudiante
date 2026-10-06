@@ -22,16 +22,14 @@ def mostrar_tabla(clientes):
     imprimir_info(f"Total: {len(clientes)} cliente(s)")
 
 
-# ---------- C · CREAR ----------
 def opcion_crear():
     imprimir_titulo("CREAR NUEVO CLIENTE")
-    # Recorro la TUPLA de campos: si mañana agrego un campo al Modelo,
-    # este formulario se actualiza solo.
+
     datos = {}
     for campo in CAMPOS_CLIENTE:
         datos[campo] = input(f"{campo.capitalize()}: ")
 
-    exito, mensaje = crear_cliente(datos)          # desempaqueto la TUPLA que devuelve
+    exito, mensaje = crear_cliente(datos)          
     if exito:
         imprimir_exito(mensaje)
     else:
@@ -39,7 +37,7 @@ def opcion_crear():
     pausa()
 
 
-# ---------- R · LEER TODOS ----------
+
 def opcion_ver_todos():
     imprimir_titulo("LISTA DE CLIENTES")
     clientes = obtener_todos()
@@ -50,7 +48,7 @@ def opcion_ver_todos():
     pausa()
 
 
-# ---------- S · BUSCAR ----------
+
 def opcion_buscar():
     imprimir_titulo("BUSCAR CLIENTE")
     termino = input("Nombre, email, teléfono o ciudad: ")
@@ -63,7 +61,6 @@ def opcion_buscar():
     pausa()
 
 
-# ---------- R · LEER UNO ----------
 def opcion_ver_por_id():
     imprimir_titulo("VER CLIENTE POR ID")
     try:
@@ -76,13 +73,12 @@ def opcion_ver_por_id():
     if not cliente:
         imprimir_error(f"No existe un cliente con id {id_cliente}")
     else:
-        # Recorro el DICCIONARIO del cliente: clave y valor a la vez
+
         for clave, valor in cliente.a_diccionario().items():
             print(f"  {clave.capitalize():<12}: {valor}")
     pausa()
 
 
-# ---------- U · ACTUALIZAR ----------
 def opcion_actualizar():
     imprimir_titulo("ACTUALIZAR CLIENTE")
     try:
@@ -99,7 +95,6 @@ def opcion_actualizar():
     imprimir_info(f"Editando a {cliente.obtener_nombre_completo()}")
     print("Deje en blanco el campo que no quiera cambiar.\n")
 
-    # Armo un DICCIONARIO solo con lo que el usuario escribió
     cambios = {}
     for campo in CAMPOS_CLIENTE:
         actual = getattr(cliente, campo)
@@ -115,7 +110,6 @@ def opcion_actualizar():
     pausa()
 
 
-# ---------- D · ELIMINAR ----------
 def opcion_eliminar():
     imprimir_titulo("ELIMINAR CLIENTE")
     try:
@@ -141,7 +135,6 @@ def opcion_eliminar():
     pausa()
 
 
-# ---------- EXTRA · ESTADÍSTICAS ----------
 def opcion_estadisticas():
     imprimir_titulo("ESTADÍSTICAS")
     datos = estadisticas()
@@ -157,7 +150,6 @@ def salir():
     return "salir"
 
 
-# DICCIONARIO de opciones: tecla -> (texto del menú, función)
 OPCIONES = {
     "1": ("Crear cliente", opcion_crear),
     "2": ("Ver todos", opcion_ver_todos),
@@ -182,7 +174,7 @@ def main():
         mostrar_menu()
         tecla = input("Seleccione una opción: ").strip()
 
-        if tecla not in OPCIONES:          # búsqueda instantánea por clave
+        if tecla not in OPCIONES:         
             imprimir_error("Opción no válida")
             pausa()
             continue
