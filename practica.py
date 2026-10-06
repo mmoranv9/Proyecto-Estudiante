@@ -23,9 +23,7 @@ def ejercicio_1():
     ciudades = ["Quito", "Guayaquil", "Quito", "Cuenca", "Guayaquil"]
     print(f"Lista de entrada: {ciudades}")
 
-    # Explicación teórica:
-    # Un set() elimina duplicados pero NO conserva el orden de inserción.
-    # Combinamos un 'set' como tabla hash de consulta rápida O(1) con una 'list' para preservar el orden.
+
     vistas = set()
     unicas = []
     for ciudad in ciudades:
@@ -45,7 +43,6 @@ def ejercicio_2():
 
     conteo = {}
     for ciudad in ciudades:
-        # dict.get(clave, 0) previene KeyError y simplifica la inicialización
         conteo[ciudad] = conteo.get(ciudad, 0) + 1
 
     print(f"Diccionario de frecuencias: {conteo}")
@@ -63,10 +60,9 @@ def ejercicio_3():
     print(f"Matemática : {inscritos_matematica}")
     print(f"Inglés     : {inscritos_ingles}")
 
-    # Operaciones de teoría de conjuntos
-    ambas = inscritos_matematica & inscritos_ingles      # Intersección
-    solo_mate = inscritos_matematica - inscritos_ingles  # Diferencia relativa (A \ B)
-    total = len(inscritos_matematica | inscritos_ingles) # Cardinalidad de la Unión (A U B)
+    ambas = inscritos_matematica & inscritos_ingles      
+    solo_mate = inscritos_matematica - inscritos_ingles  
+    total = len(inscritos_matematica | inscritos_ingles) 
 
     print(f"Estudiantes en ambas materias (A ∩ B) : {sorted(ambas)}")
     print(f"Estudiantes solo en matemática (A \\ B): {sorted(solo_mate)}")
@@ -84,7 +80,6 @@ def ejercicio_4():
     ]
     print(f"Datos originales: {clientes}")
 
-    # Comprensión de diccionario para construir un índice O(1)
     indice = {cliente["id"]: cliente for cliente in clientes}
     print(f"Índice generado (llave primaria id): {indice}")
 
